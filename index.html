@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Carmem Nascimento - Fisioterapia e Terapia Neural</title>
+    <style>
+        /* Estilos Globais e Reset */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            /* NOVO FUNDO ORGÂNICO: Bege, Marrom Claro e Verde Suave */
+            background: linear-gradient(135deg, #fcfaf5 0%, #eaddcf 50%, #c8d8c6 100%);
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #5d4037; /* Texto em marrom médio */
+        }
+        h1, h2, h3 {
+            color: #3e2723; /* Títulos em marrom bem escuro */
+        }
+        
+        /* Menu de Navegação */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            box-shadow: 0 4px 15px rgba(93, 64, 55, 0.1); /* Sombra marrom suave */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #2e8b57; /* Verde */
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #6d4c41; /* Marrom ao passar o mouse */
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Capa (Início) */
+        #inicio {
+            text-align: center;
+            padding-top: 80px;
+            padding-bottom: 40px;
+        }
+        .foto-perfil {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(93, 64, 55, 0.15);
+            margin-bottom: 20px;
+        }
+
+        /* Caixa com fundo claro para o texto da intro */
+        .caixa-intro {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.1);
+            margin-top: -10px;
+        }
+
+        .btn-principal {
+            display: inline-block;
+            background-color: #2e8b57; /* Verde */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
+        }
+        .btn-principal:hover {
+            transform: scale(1.05);
+            background-color: #246b43;
+            box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+        }
+
+        /* Especialidades */
+        .grid-especialidades {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .card-especialidade {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.1);
+            border-left: 6px solid #8d6e63; /* Borda lateral marrom clara */
+        }
+        .card-especialidade h3 {
+            color: #3e2723;
+            margin-top: 0;
+            font-size: 22px;
+            border-bottom: 1px solid rgba(141, 110, 99, 0.2);
+            padding-bottom: 10px;
+        }
+
+        /* --- ESTILOS DO BOTAO VER MAIS --- */
+        details {
+            margin-top: 15px;
+        }
+        summary {
+            cursor: pointer;
+            color: #5d4037;
+            font-weight: bold;
+            font-size: 15px;
+            outline: none;
+            list-style: none;
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #f5f0e6; /* Fundo bege do botão */
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            border: 1px solid #eaddcf;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary:hover {
+            background-color: #eaddcf;
+        }
+        summary::after {
+            content: ' ⬇️';
+        }
+        details[open] summary::after {
+            content: ' ⬆️';
+        }
+        .conteudo-extra {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #d7ccc8;
+        }
+        .conteudo-extra p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        /* --- ESTILOS DA GALERIA DE FOTOS --- */
+        .galeria-especialidade {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .img-especialidade {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 500px) {
+            .galeria-especialidade {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card-especialidade h4 {
+            color: #2e8b57;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+        ul.lista-beneficios {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        ul.lista-beneficios li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        ul.lista-beneficios li::before {
+            content: '✔️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 14px;
+        }
+
+        /* Contato */
+        #contato {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 25px rgba(93, 64, 55, 0.1);
+            padding: 40px 20px;
+        }
+        .btn-local {
+            display: inline-block;
+            background-color: #6d4c41; /* Botão de mapa marrom */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(109, 76, 65, 0.3);
+        }
+        .btn-local:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(109, 76, 65, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <section id="inicio">
+        <img src="foto.png" alt="Foto da Dra." class="foto-perfil">
+        
+        <div class="caixa-intro">
+            <h1>Dra. Carmem Nascimento</h1>
+            <p>Fisioterapeuta | CREFITO: 3/8136-F</p>
+            <p style="font-size: 18px; max-width: 600px; margin: 0 auto;">Cuidado preciso e resultados eficazes para o seu bem-estar, focado em tratamentos para dor e reequilíbrio do sistema nervoso.</p>
+            
+            <a href="#contato" class="btn-principal">Agendar uma Avaliação</a>
+        </div>
+    </section>
+
+    <section id="especialidades">
+        <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px; color: #3e2723;">Nossas Especialidades</h2>
+        
+        <div class="grid-especialidades">
+            
+            <div class="card-especialidade">
+                <h3>Neuromuscular & Quiropraxia Instrumental</h3>
+                <p>Terapia segura e com resultados rápidos focada no equilíbrio neuromuscular.</p>
+                
+                <details>
+                    <summary>Ver mais detalhes</summary>
+                    <div class="conteudo-extra">
+                        <p>A Quiropraxia Instrumental aliada à terapia neuromuscular atua diretamente na origem da dor, promovendo um reequilíbrio completo do corpo sem a necessidade de estalos bruscos.</p>
+                        
+                        <div class="galeria-especialidade">
+                            <img src="quiropraxia2.png" alt="Tratamento Neuromuscular 1" class="img-especialidade">
+                            <img src="quiropraxia.jpg" alt="Tratamento Neuromuscular 2" class="img-especialidade">
+                        </div>
+
+                        <p>É uma técnica indicada para pacientes de todas as idades, focando na recuperação da mobilidade e no alívio imediato de tensões musculares e articulares.</p>
+                        
+                        <h4>Principais Indicações:</h4>
+                        <ul class="lista-beneficios">
+                            <li>Tratamento de Hérnia de Disco e Lombalgia</li>
+                            <li>Tratamento de Postura Global e Escoliose</li>
+                            <li>Dor de Cabeça, Enxaqueca e Dor Cervical</li>
+                            <li>Distúrbios Convulsivos</li>
+                            <li>Traumas e Concussão</li>
+                            <li>Fibromialgia</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+            <div class="card-especialidade">
+                <h3>Terapia Neural</h3>
+                <p>Técnica de injeções em pontos específicos para reequilibrar o sistema nervoso.</p>
+                
+                <details>
+                    <summary>Ver mais detalhes</summary>
+                    <div class="conteudo-extra">
+                        <p>A Terapia Neural baseia-se na ideia de que qualquer trauma, infecção ou cirurgia pode criar "campos de interferência" no corpo, prejudicando o funcionamento do sistema nervoso autônomo.</p>
+                        
+                        <div class="galeria-especialidade">
+                            <img src="terapianeural.jpg" alt="Aplicação de Terapia Neural 1" class="img-especialidade">
+                            <img src="terapianeural2.png" alt="Aplicação de Terapia Neural 2" class="img-especialidade">
+                        </div>
+
+                        <p>Através de pequenas aplicações em locais estratégicos, conseguimos "reiniciar" esse sistema, permitindo que o corpo volte a se curar naturalmente.</p>
+
+                        <h4>Indicações:</h4>
+                        <ul class="lista-beneficios" style="margin-bottom: 20px;">
+                            <li>Dores crônicas e Problemas Articulares</li>
+                            <li>Enxaquecas e Neuralgias</li>
+                            <li>Distúrbios Funcionais</li>
+                            <li>Síndrome do Estresse</li>
+                        </ul>
+
+                        <h4>Benefícios do Tratamento:</h4>
+                        <ul class="lista-beneficios">
+                            <li>Alívio Rápido da Dor</li>
+                            <li>Redução da Inflamação</li>
+                            <li>Melhora imediata do Bem-Estar</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Agende sua Consulta</h2>
+        <p>Entre em contato pelo WhatsApp para tirar dúvidas ou marcar um horário.</p>
+        
+        <a href="https://wa.me/5511978281007" class="btn-principal" target="_blank" style="margin-bottom: 20px;">
+            📱 Chamar no WhatsApp
+        </a>
+        <br>
+        <a href="https://share.google/7StaU101lqlgA6XGH" class="btn-local" target="_blank">
+            📍 Ver Endereço no Mapa
+        </a>
+    </section>
+
+</body>
+</html>
